@@ -1,0 +1,21 @@
+
+//Comparing objects
+
+function Address(st, city, code){
+        this.street= st,
+        this.city= city,
+        this.zipcode= code
+}
+const add1 = new Address('7-35/1', 'Kal', '508201');
+const add2 = new Address('7-35/1', 'Kal', '508201');
+console.log(areEqual(add1, add2));
+
+function areEqual(add1, add2){
+    return add1.street === add2.street && add1.city === add2.city && add1.zipcode === add2.zipcode
+}
+
+function areSame(){
+    return add1 === add2;
+
+}
+

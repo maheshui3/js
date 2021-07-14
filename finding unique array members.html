@@ -1,0 +1,23 @@
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+let filteredArray = [];
+function unique(arr) {
+    for (let index = 0; index < arr.length; index++) {
+        
+        if(filteredArray.includes(arr[index])){
+            continue;
+        } else {
+            filteredArray.push(arr[index])
+        }
+    }
+    return filteredArray;
+
+}
+
+/*function unique(arr) {
+    return new Set(arr);
+}*/
+//set is collection of unique values.
+console.log( unique(strings) );
+
+//we can also use for of

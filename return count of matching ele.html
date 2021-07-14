@@ -1,0 +1,22 @@
+//return count of the matching elements in an array
+const numbers = [1, 2, 3, 4, 1, 1, 4]
+console.log(countOccurances(numbers, 1));
+function countOccurances(input, searchEle){
+    return input.reduce((count, current) => {
+        const occurance = (current === searchEle) ? 1 : 0;
+        console.log(count, current, searchEle);
+        return count+occurance;
+    },0)
+    
+}
+
+/*function countOccurances(input, searchEle){
+    let count = 0;
+    for (let el of input) {
+        if(el === searchEle){
+            count++;
+        }
+    }
+    return count;
+    
+}*/

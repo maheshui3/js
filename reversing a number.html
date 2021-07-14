@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //reversing a integer
+    document.write(reverseNumber(-12340));
+    function reverseNumber(n){
+        let reversed = n.toString().split('').reverse().join('');
+        return parseInt(reversed)* Math.sign(n);
+    }
+</script>
+
+</body>
+</html>

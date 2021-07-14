@@ -1,0 +1,31 @@
+//print prime numbers till limit
+function primeNumbers(input){
+    let count = 0;
+    for (let number = 2; number < input; number++) {
+        let isPrime = true;
+      for (let factor = 2; factor < number; factor++) {
+          if(number % factor === 0 ){
+            isPrime = false;
+            break;
+          }
+      }
+      if(isPrime){
+        console.log(i)      }
+    }
+    //return count;
+
+}
+primeNumbers(10);
+
+//using labels
+let n = prompt('please enter a valid number', '');
+nextPrime: for (let i = 2; i <= n; i++) {
+    //let prime = false;
+    for (let j = 2; j < i; j++) {
+        if(i % j === 0){
+            continue nextPrime;
+
+        }
+    }
+    console.log(i);
+}

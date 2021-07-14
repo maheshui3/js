@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    fizbuzz(100);
+    function fizbuzz(n){
+        for (let i=0; i <= n; i++){
+            if((i%3) === 0 && (i%5) === 0){
+                document.write('fizbuz');
+            }else if(i%3 === 0) {
+                document.write('fiz');
+            }else if(i%5 === 0) {
+                document.write('buz');
+            }else {
+                document.write(i);
+            }
+        }
+    }
+    //fizbuzz1(100);
+    function fizbuzz1(n){
+        for (let i=0; i <= n; i++){
+            switch(i) {
+                case (i%3 === 0):
+                    console.log('fiz');
+                    break;
+                case (i%5 === 0):
+                    console.log('buzz');
+                    break;
+                case ((i%3) === 0 && (i%5) === 0):
+                    console.log('fizbuz');
+                    break;
+                default:
+                    console.log(i);
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

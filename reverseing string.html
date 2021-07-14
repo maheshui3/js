@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //method 1
+    //reverse('hello how are you doing');
+
+    //split method is used to convert a string to an array
+    //reverse method reverses an array
+    //split method converts an array into string
+    function reverse(arg){
+        console.log(arg.split('').reverse().join(''));
+        return arg.split('').reverse().join('');
+    }
+
+    //method 2
+    //...spread operator is used to convert string to an array
+    //reverse1('mahesh');
+    function reverse1(arg){
+        console.log([...arg].reverse().join(''));
+        return [...arg].reverse().join('');
+    }
+    //method 3
+    /*Check the input string that if given string is empty or just have one character or it is not
+    of string type then it return “Not Valid string.
+    If the above condition false create an array where we can store the result. Here revArray[] is the new array.
+    Loop through the array from the end to the beginning and push each and every item in the array revArray[].
+        Use join() prebuilt function in JavaScript to join the elements of an array into a string*/
+    //reverse2('test2');
+    function reverse2(arg){
+        if((arg.length == 0) || (arg.length < 2) || typeof arg !== 'string'){
+            return 'not a string';
+        }else{
+            let revArray = [];
+            for(let i = (arg.length) - 1; i >= 0; i--){
+               revArray.push(arg[i]);
+            }
+            console.log("output3" + revArray.join(''));
+            return revArray.join('');
+        }
+    }
+
+    //method 4
+    console.log(reverse3("test4"));
+    function reverse3(arg) {
+        return arg.split('').reduce((rev, char) =>  char + rev
+        , '');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+//print keys with string values
+/*let targetobject = {
+    name: 'Mahesh',
+    1: 29,
+    address: "vkl"
+};
+objProperties(targetobject);
+function objProperties(){
+    for(let v in targetobject){
+        if(typeof (targetobject[v]) === 'string'){
+        console.log(v);
+        }
+    }
+}*/
+//print sum of multiples of 3 and 5
+function sum(limit){
+    let sumValue = 0;
+    for (let i = 0; i <= limit; i++) {
+        if(i % 3 === 0){
+            sumValue += i;
+        }    
+        else if (i % 5 === 0)
+            sumValue += i;
+        else sumValue += 0
+        
+    }
+    return sumValue;
+}
+console.log(sum(10));
+

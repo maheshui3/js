@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*console.log(anagram('listen', 'silent'));
+    function anagram(str1, str2){
+        let charMap1 = buildCharMap(str1);
+        let charMap2 = buildCharMap(str2);
+        if(Object.keys(charMap1).length !== Object.keys(charMap2).length){
+            return false;
+        }
+        for(let char in charMap1){
+            if(charMap1[char] !== charMap2[char]){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    function buildCharMap(str){
+        let charMap = []
+        for(let char of str.replace(/[^\w]/g, '').toLowerCase()){
+            charMap[char] = charMap[char]+1 || 1;
+        }
+        return charMap;
+    }*/
+    console.log(anagram1('listen', 'silent'))
+    function anagram1(str1, str2){
+        let string1 = cleanStr(str1);
+        let string2 = cleanStr(str2);
+        return string1.length === string2.length;
+
+    }
+
+    function cleanStr(str) {
+        return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

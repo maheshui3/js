@@ -1,0 +1,37 @@
+//three ways to create objects using literals, using factory, constructor
+//initializing object using literals
+const address = {
+    street: "7-35/1 Chevvavari gudem",
+    city: "Kalmalachervu",
+    zipcode: "508201"
+}
+
+function showAddress (param) { 
+    for(let key in param){
+        console.log(key, param[key])
+    }
+}
+showAddress(address);
+
+//Initializing object using factory - uses camelcase notation
+function address(st, city, code){
+    return {
+        street: st,
+        city: city,
+        zipcode: code
+    }
+}
+const add = address('7-35/1', 'Kal', '508201');
+console.log(add);
+
+//Initializing object using constructor - uses pascal notation
+
+function address(st, city, code){
+        this.street= st,
+        this.city= city,
+        this.zipcode= code
+}
+const add = new address('7-35/1', 'Kal', '508201');
+console.log(add);
+
+//summary - factory return an object, where as constructor uses this keyword to create a new object, behind the scenes they both does same functionality.

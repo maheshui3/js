@@ -1,0 +1,44 @@
+
+
+//check whether the given element exist in an array or not! implementing includes method, assume its not existed.
+/*const numbers = [1, 2, 3, 4]
+function arrayExclude(inputArray, rem){
+    const excluded = inputArray.filter((el) => {
+        return rem.indexOf(el) < 0;
+    })
+    console.log(excluded);
+ 
+}
+arrayExclude(numbers, [2]);*/
+//when there are elements of type ref in an array
+/*var inputArray = [
+    {name: 'deepak', place: 'bangalore'}, 
+    {name: 'chirag', place: 'bangalore'}, 
+    {name: 'alok', place: 'berhampur'}, 
+    {name: 'chandan', place: 'mumbai'}
+];
+var toRemove = [
+    {name: 'deepak', place: 'bangalore'},
+    {name: 'alok', place: 'berhampur'}
+];
+function arrayExclude(inputArray, toRemove){
+    const excluded = inputArray.filter((el) => !toRemove.find((ele) => (ele.name === el.name && el.place === ele.place)))
+    console.log(excluded);
+ 
+}
+arrayExclude(inputArray, toRemove);*/
+
+//method 3
+const numbers = [1, 2, 3, 4]
+const output = arrayExclude(numbers, [2])
+function arrayExclude(numbers, rem){
+    const output = [];
+    for(let el of numbers){
+        if(!rem.includes(el)){
+            output.push(el)
+        }
+    }
+    return output;
+ 
+}
+console.log(output);

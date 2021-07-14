@@ -1,0 +1,30 @@
+/*function squareRoot(num){
+    if( num < 2) return num;
+    let left = 1;
+    let right = num;
+    while(left <= right) {
+        let mid = Math.floor((left + right)/2);
+        if(mid * mid === num) {
+            return mid;
+        } else if(mid * mid  > num){
+            right = mid - 1;
+        } else{
+            left = mid + 1;
+        }
+    }
+    return right;
+}
+console.log(squareRoot(10));
+console.log(squareRoot(9));
+console.log(squareRoot(25));*/
+
+function squareRoot(num){
+    if(num < 2) return num;
+    let p = 1;
+    while(p*p <= num) {
+        p++;
+    }
+    return p - 1;
+}
+
+console.log(squareRoot(4));

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //printing steps
+    printSteps(2)
+    function printSteps(n){
+        for(let i=0; i<n; i++){
+            let step = ' ';
+            for(let j=0; j<n; j++){
+               if(j<=(2*(i)-1)){
+                   step = step+'#';
+               }else{
+                   step = step+' ';
+               }
+            }
+        console.log(step);
+        }
+    }
+    //method 2 printing steps
+    /*printSteps(3)
+    function printSteps(n){
+        for(let i=1; i<=n; i++){
+            console.log("*".repeat(i));
+        }
+    }*/
+
+
+
+</script>
+
+</body>
+</html>

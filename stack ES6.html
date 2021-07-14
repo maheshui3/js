@@ -1,0 +1,62 @@
+//create a class to implement stack, where push to push to an array, pop to remove, count to get count and peek to get last item in an array
+let stk = [];
+class stack {
+    constructor(){
+        this.count = 0;
+    }
+    peek() {
+        console.log(stk.length);
+        console.log(stk[stk.length - 1]);
+
+    }
+    pop(){
+        stk.pop();
+
+    }
+    push(input){
+        stk.push(input);
+        console.log("stack is" + input);
+
+    }
+    getCount(){
+        console.log("length is " + stk.length);
+        
+    }
+}
+const st = new stack();
+
+//method 2
+
+const _items = new WeakMap();
+
+class Stack {
+  constructor() {
+    _items.set(this, []);
+  }
+
+  push(obj) {
+    _items.get(this).push(obj);
+  }
+
+  pop() {
+    const items = _items.get(this);
+
+    if (items.length === 0)
+      throw new Error('Stack is empty.');
+
+    return items.pop();
+  }
+
+  peek() {
+    const items = _items.get(this);
+
+    if (items.length === 0)
+      throw new Error('Stack is empty.');
+
+    return items[items.length - 1];      
+  }
+
+  get count() {
+    return _items.get(this).length;
+  }
+}
