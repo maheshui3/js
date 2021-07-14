@@ -1,0 +1,31 @@
+/*Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array.
+There can be negative numbers in the array, but it will always be sorted.
+*/
+
+/*COMMENTS: 
+*/
+/*function countUniqueValuesM1(arr) {
+    let lookUp = {};
+    for (const ele of arr) {
+        lookUp[ele] = (lookUp[ele] || 0) + 1;
+    }
+    return (Object.keys(lookUp)).length; //Object.keys returns array of keys
+}
+
+console.log(countUniqueValuesM1([-2,0,1,3]))// 4
+console.log(countUniqueValuesM1([1,1,1,2,3])) // 3*/
+
+//using Multiple pointers
+function countUniqueValuesM2(arr) {
+    let i = 0;
+    for (let j = 1; j < arr.length; j++) {
+        if(arr[i] !== arr[j]){
+            arr[i] = arr[j]; 
+            i++;
+        }
+    }
+    return i + 1;
+}
+
+console.log(countUniqueValuesM2([-2,0,1,3]))// 4
+console.log(countUniqueValuesM2([1,1,1,2,3,5,7])) // 5

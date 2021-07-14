@@ -1,0 +1,44 @@
+/*quicksortsort
+ A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, 
+based on which the partition is made and another array holds values greater than the pivot value.
+we repeat the same process for left and right parts aswell.
+*/
+/*COMMENTS: 
+*/
+
+
+// Merges two already sorted arrays
+function partision(arr, start, end){
+    let pivot = arr[start];
+    let lower = start;
+    let upper = end;
+    while(lower < upper) {
+        while(arr[lower] <= pivot) {
+            lower++;
+        }
+        while(arr[upper] > pivot) {
+            upper--;
+        }
+        if(lower < upper) {
+            [arr[lower], arr[upper]] = [arr[upper], arr[lower]];
+        }
+    }
+    let temp = arr[start];
+    arr[start] = arr[upper];
+    arr[upper] = temp;;
+    return upper;
+}
+
+function quickSort(arr, start=0, end=arr.length - 1){
+    if(start < end){
+        let pivotIndex = partision(arr, start, end);
+        //left
+        quickSort(arr, start, pivotIndex - 1);
+        //right
+        quickSort(arr, pivotIndex + 1, end);
+    }
+    return arr;
+    
+}
+
+console.log(quickSort([1,4,2,5,7,3]));

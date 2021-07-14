@@ -1,49 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<script>
-    //method 1
-    //console.log(reverse('noon'));
+/*write a recursive function called isPalindrome which returns true if the string passed to it is a palindrome (reads same in forward and backward). 
+otherwise it returns false.
+*/
 
-    //split method is used to convert a string to an array
-    //reverse method reverses an array
-    //join method converts an array into string
-    //check if reverse array is === original array
-    function reverse(arg){
-        let rev = arg.split('').reverse().join('');
-        if(arg === rev){return true}return false;
+/*COMMENTS: 
+*/
+function isPalindrome(str){
+    if(str.length === 1) return true;
+    if(str.length === 2) return str[0] === str[1];
+    if(str[0] === str.slice(-1)) return isPalindrome(str.slice(1,-1))
+    return false;
+}
 
+console.log(isPalindrome('awesome')) // false
+console.log(isPalindrome('tacocat')) // true
+
+
+//method 2
+
+/*function isPalindrome(str){
+    //reverse method works on arrays, convert given string to an array and apply reverse and convert back to string using join.
+      return (str.split('').reverse().join('')) === str;
+}
+
+console.log(isPalindrome('awesome')) // false
+console.log(isPalindrome('tacocat')) // true*/
+
+//method3
+/*function isPalindrome(str){
+    let length = str.length;
+    let newString = ''
+    for (let index = length; index > 0; index--) {
+        newString += str[index - 1];
     }
-
-    //method 2
-    //...spread operator is used to convert string to an array
-    //reverse2('mahesh');
-    function reverse2(arg){
-        console.log([...arg].reverse().join(''));
-        return [...arg].reverse().join('');
-    }
-
-    //method 3
-    //console.log(reverse3("test4"));
-    function reverse3(arg) {
-        return arg.split('').reduce((rev, char) =>  char + rev
-        , '');
-    }
-
-    //method4
-    console.log(reverse4('noon'));
-    function reverse4(arg) {
-         let newArray = arg.split('');
-        return newArray.every((char, index) =>  {
-             return newArray[newArray.length-1 - index] === newArray[index];
-        });
-    }
-
-</script>
-
-</body>
-</html>
+    return newString === str;
+}
+console.log(isPalindrome('awesome')) // //false
+console.log(isPalindrome('tacocat')) // true*/

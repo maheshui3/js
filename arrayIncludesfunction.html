@@ -1,0 +1,20 @@
+
+
+//check whether the given element exist in an array or not! implementing includes method, assume its not existed.
+const numbers = [1, 2, 3, 4]
+function arrayFromRange(inputArray, searchElement){
+    const exist = Boolean(inputArray.indexOf(searchElement));
+    console.log(exist);
+    
+}
+arrayFromRange(numbers, 2);
+//console.log(numbers);
+//solution2
+function includes(inputArray, searchElement){
+    for(let ele of inputArray){
+        if(ele === searchElement){
+            return true;
+        }
+    }
+    return false;
+}

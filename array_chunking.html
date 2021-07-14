@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*console.log(chunk([1,2,3,4,5], 2));
+    function chunk(arr, size){
+        let ChunkedArray = [];
+        /!*for(let i = 0; i< arr.length; i+size){
+           ChunkedArray.push(arr.slice(i, i+size));
+        }*!/
+        let i = 0;
+        while(i<arr.length){
+            ChunkedArray.push(arr.slice(i, i+size));
+            i=i+size;
+        }
+        return ChunkedArray;
+    }*/
+    console.log(chunk1([1,2,3,4,5], 2));
+    function chunk1(arr, size){
+        let ChunkedArray = [];
+        for(let ele of arr){
+            let lastEle = ChunkedArray[ChunkedArray.length - 1]
+            if(!lastEle || lastEle.length === size){
+                ChunkedArray.push([ele]);
+            }else{
+                lastEle.push(ele)
+            }
+        }
+        return ChunkedArray;
+    }
+
+
+</script>
+
+</body>
+</html>

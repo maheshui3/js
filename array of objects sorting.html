@@ -1,0 +1,26 @@
+let john = { name: "John", surname: "Smith", age: 26 };
+let pete = { name: "Pete", surname: "Hunt", age: 18 };
+let mary = { name: "Mary", surname: "Key", age: 40 };
+
+let users = [ john, pete, mary ];
+/*let names;
+function sortAges(users) {
+    return names = users.map((user) => ({
+        age:  user.age
+    })).sort((a,b) => a.age - b.age);
+}
+console.log(sortAges(users));*/
+console.log(users.sort((a, b) => (a.age - b.age)));function sortDesending(arr) {
+    arr.sort((a, b) => {
+        return (b - a)}
+    )
+    
+}
+// function compareNumeric(a, b) {
+//     if (b > a) return 1;
+//     if (a == b) return 0;
+//     if (b < a) return -1;
+// }
+let arr = [5,3,8,1]
+sortDesending(arr);
+console.log(arr);

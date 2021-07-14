@@ -1,0 +1,41 @@
+/*countsort
+ Counting sort is an integer sorting algorithm, which is used for sorting a collection of elements according to the keys
+ it does not ork on negative numbers, floating point numbers.
+https://learnersbucket.com/tutorials/algorithms/counting-sort-algorithm-in-javascript/
+ */
+/*COMMENTS: 
+*/
+
+
+// Merges two already sorted arrays
+function countingSort(arr){
+    let max = Math.max(...arr);
+    //initlize a count array with size max + 1, create count array with all elements = 0
+    let count = new Array(max + 1).fill(0);
+    let result = new Array(arr.length).fill(0);
+    //console.log(count);
+    //for each value increase the count of index in counter array
+    for (let index = 0; index < arr.length; index++) {
+        ++count[arr[index]];
+    }
+    //console.log(count);
+    //sum those counts in the counter array
+    for (let j = 1; j <= max; j++) {
+        count[j] = count[j] + count[j-1];
+    }
+    //console.log(count);
+    //console.log(result);
+    //genrerate a new array with length equals original array, push values of count to result // index = arr[k] //count[index]
+    for (let k = arr.length - 1; k >= 0; k--) {
+        result[--count[arr[k]]] = arr[k]
+    }
+    //copy values from results to original array
+    for (let index = 0; index < arr.length; index++) {
+        arr[index] = result[index]        
+    }
+
+}
+console.log(countingSort([1,4,2,5,7,3]));
+
+
+

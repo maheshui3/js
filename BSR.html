@@ -1,0 +1,149 @@
+/*
+*/
+/*COMMENTS: 
+*/
+//documentation: https://dev.to/seanwelshbrown/implementing-a-basic-binary-search-tree-in-javascript-57g4
+//https://www.digitalocean.com/community/tutorials/js-tree-traversal
+//https://www.geeksforgeeks.org/implementation-binary-search-tree-javascript/
+//node - piece of data - val, reference to next node.
+
+class Node {
+    constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    } 
+}
+
+class binarySearchTree {
+    constructor(){
+        this.root = null;
+    }
+
+    insert(value) {
+        let newNode = new Node(value);
+        if(!this.root) {
+            this.root = newNode;
+            return this;
+        } 
+        else {
+            var current = this.root;
+            if(value === current.value) return undefined;
+            //value is greater
+            while(current.value < value) {
+                if(current.right) {
+                    current = current.right;
+                } else {
+                    current.right = newNode;
+                    return this;
+                }
+            }
+            //value is lesser
+            while(value < current.value) {
+                if(current.left) {
+                    current = current.left;
+                } else {
+                    current.left = newNode;
+                    return this;
+                }
+            }
+            
+        }   
+    }
+
+    //finding an element in binary search tree
+    find(value) {
+        //if no root - no need to check for other cases
+        if(!this.root) {
+            return false;
+        }
+        var current = this.root;
+        while(current){
+            if(value < current.value) {
+                current = current.left;
+            } else if(value > current.value){
+                current = current.right;
+            } else{
+                return true;
+            }
+        }
+        return false;
+    }
+
+    BFS(){
+        var currentNode = this.root,
+            data = [],
+            queue = [];
+        queue.push(currentNode);
+
+        while(queue.length){
+            currentNode = queue.shift();
+           data.push(currentNode.value);
+           if(currentNode.left) queue.push(currentNode.left);
+           if(currentNode.right) queue.push(currentNode.right);
+        }
+        return data;
+    }
+
+    preOrder(){
+        let nodesVisited = [];
+        let current = this.root;
+        function preOrderHelper(current){
+            nodesVisited.push(current.value);
+            if(current.left) {
+                preOrderHelper(current.left);
+            }
+            if(current.right) {
+                preOrderHelper(current.right);
+            }
+        }
+        preOrderHelper(current);
+        return nodesVisited;
+    }
+
+    postOrder(){
+        let nodesVisited = [];
+        let current = this.root;
+        function postOrderHelper(current){
+            if(current.left) {
+                postOrderHelper(current.left);
+            }
+            
+            if(current.right) {
+                postOrderHelper(current.right);
+            }
+            nodesVisited.push(current.value);
+        }
+        postOrderHelper(current);
+        return nodesVisited;
+    }
+
+    inOrder(){
+        let nodesVisited = [];
+        let current = this.root;
+        function inOrderHelper(current){
+            if(current.left) {
+                inOrderHelper(current.left);
+            }
+            nodesVisited.push(current.value);
+            if(current.right) {
+                inOrderHelper(current.right);
+            }
+            
+        }
+        inOrderHelper(current);
+        return nodesVisited;
+    }
+}
+
+var tree = new binarySearchTree(10);
+tree.insert(10);
+tree.insert(5);
+tree.insert(20);
+tree.insert(3);
+tree.insert(15);
+tree.insert(22);
+//console.log(tree.BFS());
+console.log(tree.preOrder());
+console.log(tree.postOrder());
+console.log(tree.inOrder());

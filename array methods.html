@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+    forexamples();
+    function forexamples(){
+        let sum = 0;
+        const numbers = [1, 2, 3, 4, 5];
+        numbers.forEach( (num) => {
+            sum = sum + num;
+        });
+        document.write("test foreach"+ sum); // 15
+    }
+    testmap();
+    function testmap(){
+        const numbers = [1, 2, 3, 4, 5];
+        let double = numbers.map( (num) => {
+            // Its mandatory to have a return while using map
+            return num * 2;
+        });
+        document.write("testMap" + double); // [2, 4, 6, 8, 10]
+    }
+
+
+    testfilter();
+    function testfilter(){
+        let objects = [
+            {flag:1, a:1},
+            {flag:1, a:2},
+            {flag:0, a:3}
+        ];
+        objects.find((object) => {
+            if(object.flag === 1) {
+                // Display the result
+                document.write("test find" + object.flag+","+object.a);
+            }
+        });
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+let arr = ["HTML", "JavaScript", "CSS"];
+function copySorted(arr) {
+    return sorted = arr.slice().sort();
+    //return sorted = arr.sort( (a, b) => a.localeCompare(b) );
+    //here localecompare modifies the same array.
+}
+//copySorted(arr)
+console.log(copySorted(arr));
+console.log(arr);
+/*splice - method is used to delete elements from array and add few 
+arr.splice(start[, deleteCount, elem1, ..., elemN])
+slice - It returns a new array copying to it all items from index start to end
+arr.slice(1, 3) 
+difference: splice() changes the original array whereas 
+slice() doesn't but both of them returns array object.
+https://stackoverflow.com/questions/37601282/javascript-array-splice-vs-slice
+*/

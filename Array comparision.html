@@ -1,0 +1,69 @@
+/*Write a function called same, which accepts two arrays. 
+The function should return true if every value in the array has it's corresponding value squared in the second array. 
+The frequency of values must be the same.*/
+
+//step1: check if two arrays have equal length, if not return false.
+//step2: loop through the first array.
+//step3: check for the current element in second array
+//step4: if the element exists remove that element from the second array, so that we can avoid checking for same value next iteration.
+//step5: if not return false
+
+/*COMMENTS: below code is of time complexity O(n^2).  
+we can see inside for loop we have arr2.indexOf method it will loop through all elements to find. as input grows time complexity grows.
+In terms of space complexity its O(1) - we are always storing currentIndex irrespective of array size.
+*/
+function ArrayComparisionM1(arr1, arr2) {
+    if(arr1.length !== arr2.length) {
+        return false;
+    }
+    for (const elem  of arr1) {
+        let currentIndex = arr2.indexOf(elem ** 2);
+        if(currentIndex === -1) {
+            return false;
+        }
+        arr2.splice(currentIndex, 1);
+    }
+    return true;
+}
+console.log(ArrayComparisionM1([1,2,3], [4,1,9]) )// true
+console.log(ArrayComparisionM1([1,2,3], [1,9, 4])) // false
+console.log(ArrayComparisionM1([1,2,1], [4,4,1])) // false (must be same frequency)
+
+//step1: check if two arrays have equal length, if not return false.
+//step2: create two objects two store key and value (frequency) for two arrays.
+//step3: loop through both arrays, if the value not existed - set value to 1, if its existed increment the value by 1
+//step4: compare both the objects for keys and values if they both are same - return true
+//step5: if not false
+
+/*COMMENTS: below code is of time complexity O(n).  
+for loop runs n times, as we have 3 for loops O(3*n) equals O(n) so the time complexity of below solution is O(n)
+In terms of space complexity we defined 2 objects, as the n value grows object space increases but not proportional to n value so its O(1) 
+*/
+function ArrayComparisionM2(arr1, arr2){
+    if(arr1.length !== arr2.length) {
+        return false;
+    }
+    let firstArrayCharCount = {};
+    let secondArrayCharCount = {};
+    for (const elem of arr1) {
+        firstArrayCharCount[elem] = (firstArrayCharCount[elem] || 0) + 1;
+    }
+    for (const elem of arr2) {
+        secondArrayCharCount[elem] = (secondArrayCharCount[elem] || 0) + 1;
+    }
+    for (const key in firstArrayCharCount) {
+        if (!((key**2) in secondArrayCharCount)) { 
+            return false;
+        }
+        if(firstArrayCharCount[key] !== secondArrayCharCount[key ** 2]){
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(ArrayComparisionM2([1,2,3], [4,1,9]) )// true
+console.log(ArrayComparisionM2([1,2,3], [1,4,9])) // false
+console.log(ArrayComparisionM2([1,2,1], [4,4,1])) // false (must be same frequency)
+
+//conclusion: solution 2 is better as we have time complexity of O(n) and space complexity of O(1)

@@ -1,0 +1,19 @@
+/*write a recursive function called someRecursive, which accepts an array and a callback, 
+the function returns true, if a single value in the array returns true, when passed to the callback. 
+otherwise it returns false.
+*/
+
+/*COMMENTS: 
+*/
+function someRecursive(arr, fun){
+    return arr.some(fun) ? true : false;
+    //foreach and every check for every value it returns true if all passes the condition.
+}
+function isOdd(input) { 
+    if(input % 2 !== 0) {
+        return true
+    }
+}
+console.log(someRecursive([1,2,3,4], isOdd)) // true
+console.log(someRecursive([4,6,8,9], isOdd)) // true
+console.log(someRecursive([4,6,8], isOdd)) // false

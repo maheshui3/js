@@ -1,0 +1,41 @@
+/*write a function called recursiveRange, 
+which accepts a number and adds up to all numbers from 0 to the number passed to that function.
+*/
+
+/*COMMENTS: 
+*/
+/*function recursiveRange(num){
+    if(num === 1) {
+        return 1;
+    }
+    return num + recursiveRange(num - 1)
+}
+
+console.log(recursiveRange(10))//55
+console.log(recursiveRange(6))//21*/
+//method 2
+
+/*function recursiveRange(num){
+    let total = 0;
+    for (let index = 1; index <= num; index++) {
+        total += index
+    }
+    return total;
+}
+
+console.log(recursiveRange(10))//55
+console.log(recursiveRange(6))//21*/
+
+//method 2
+
+function recursiveRange(num){
+    let total = 0;
+    while (num > 0) {
+        total += num;
+        num = num - 1;
+    }
+    return total;
+}
+
+console.log(recursiveRange(10))//55
+console.log(recursiveRange(6))//21

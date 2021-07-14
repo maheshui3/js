@@ -1,0 +1,17 @@
+// function filterRange(arr, a, b) {
+//     let result = arr.filter(current => (a <= current) && (current <= b));
+//     return result;
+// }
+// console.log(filterRange([5, 3, 8, 1], 1, 4));
+
+function filterRangeInPlace(arr, a, b) {
+    for (let index = 0; index < arr.length; index++) {
+        let val = arr[index];
+        if(val < a || val > b){
+            arr.splice(index, 1);
+        } 
+    }
+}
+let arr = [5,3,8,1]
+filterRangeInPlace(arr, 1, 4);
+console.log(arr);

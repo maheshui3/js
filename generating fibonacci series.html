@@ -1,0 +1,38 @@
+/*write a function called fib which accepts a number and return nth number in the fibonacci series.
+fibonacci sequence is sequence of whole numbers 1,1,2,3,5.. start with 1 and 1 there after every number is equal to sum of last 2 prevois numbers.
+*/
+
+/*COMMENTS: 
+*/
+function fib(num){
+    if(num === 1 ){
+        return [0, 1];
+    }
+    else {
+        total = fib (num - 1); 
+        length = total.length; 
+        total.push( total[ length - 1] + total[ length - 2]);  
+        return total;
+    }    
+}
+
+console.log(fib(4))//3
+console.log(fib(28))//317811
+console.log(fib(19))//4181
+
+//method 2
+
+/*function fib(num){
+    let n1 = 0, n2 = 1, nextSum;
+    for (let index = 1; index <= num; index++) {
+        console.log(n1);
+        nextSum = n1 + n2;
+        n1 = n2;
+        n2 = nextSum;
+    }
+}
+
+//console.log(fib(4))//3
+//console.log(fib(28))//317811
+console.log(fib(19))//4181*/
+

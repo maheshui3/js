@@ -1,0 +1,15 @@
+//moving array elements based on index and offset
+const numbers = [1, 2, 3, 4]
+const output = moveNumbers(numbers, 0, 2)
+function moveNumbers(input, index, offset){
+    const pos = index+offset;
+    if(pos >= input.length || pos < 0){
+        console.log('Invalid offset');
+        return;
+    }
+    const output = [...numbers];
+    const ele = output.splice(index, 1)[0]; //splice returns a new array
+    output.splice(pos, 0, ele);
+    console.log(output);
+    return output;
+}

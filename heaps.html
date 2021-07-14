@@ -1,0 +1,81 @@
+//let values = [50, 12, 15, 6, 8, 11, 13];
+class maxBinaryHeap {
+    constructor() {
+        this.values = [50, 12, 15, 6, 8, 11, 13];
+    }
+
+    //insert
+    insert(value) {
+        this.values.push(value);
+        return this.bubbleUp();
+    }
+
+    bubbleUp(){
+        let values = this.values;
+        let index = values.length - 1;
+        
+        while(index > 0){
+            const element = values[index];
+            let parentIndex = Math.floor((index -1)/2);
+            let parent = values[parentIndex];
+            if(element <= parent){
+                break;
+            }
+            [values[index], values[parentIndex]] = [values[parentIndex], values[index]];
+            index = parentIndex;
+        }
+        return values;
+    }
+
+    //removing
+    remove() {
+        let max = this.values[0];
+        let end = this.values.pop();
+        if(this.values.length > 0) {
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return max;
+    }
+
+    sinkDown() {
+        let index = 0;
+        let length = this.values.length;
+        let element = this.values[index];
+        while(true){
+            let leftChildIndex = (2*index) + 1;
+            let rightChildIndex = (2*index) + 2;
+            let rightChild, leftChild;
+            let swap = null;
+            if(leftChildIndex < length) {
+                leftChild = this.values[leftChildIndex];
+                if(leftChild > element) {
+                    swap = leftChildIndex;
+                }
+            }
+
+            if(rightChildIndex < length) {
+                rightChild = this.values[rightChildIndex];
+                if( (swap === null && rightChild > element) || 
+                    (swap !== null && rightChild > leftChild)
+                ) {
+                    swap = rightChildIndex;
+                }
+            }
+
+            if(swap === null) {
+                break;
+            }
+            this.values[index] = this.values[swap];
+            this.values[swap] = element;
+            index = swap;
+        }
+
+    }
+}
+
+let heap = new maxBinaryHeap();
+console.log(heap.insert(58));
+console.log(heap.insert(62));
+console.log(heap.insert(20));
+console.log(heap.insert(5));

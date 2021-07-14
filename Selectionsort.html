@@ -1,0 +1,29 @@
+/*seelction sort
+The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. 
+The algorithm maintains two subarrays in a given array.
+1) The subarray which is already sorted.
+2) Remaining subarray which is unsorted.
+*/
+/*COMMENTS: 
+for selection sort, we select one element index and take it as minimum, and we compare other elements with minimum if we found any other element less tham minimum we ressign the minimum index.
+and swap minimum with new value.
+*/
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if(arr[j] < arr[minIndex]){
+                minIndex = j;
+            }
+        }
+        if(minIndex != i){
+            //[arr[i] , arr[minIndex]] = [arr[minIndex] , arr[i]]
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+    return arr;
+}
+
+console.log(selectionSort([8,1,4,2,7]));

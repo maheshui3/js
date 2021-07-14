@@ -1,0 +1,62 @@
+/*Question4: Implement a function called areThereDuplicates which accepts a variable number of auguments and checks whether there are any duplicates aming arguments passed in.
+solve it by using frequency counter or multiple pointer pattern.
+*/
+
+/*COMMENTS: here below approach is based on frequency counters pattern.
+time complexity O(n)
+*/
+/*function areThereDuplicates(...args) {
+    let lookUp = {};
+    for (const elem of args) {
+        lookUp[elem] = (lookUp[elem] || 0) + 1;
+    }
+    for (const key in lookUp) {
+        if(lookUp[key] > 1) {
+            return true;
+        }
+    }
+    return false;
+}
+console.log(areThereDuplicates(1,2,3,)) // false
+console.log(areThereDuplicates(1,3,7,3)) // true
+console.log(areThereDuplicates(1,5,7,9,3,5)) // true*/
+
+/*COMMENTS: here below approach is based on multiple pointers pattern.
+time complexity - O(n^2)
+*/
+function areThereDuplicates1(...args) {
+    for (let i = 0; i < args.length; i++) {
+        for (let j = i + 1; j < args.length; j++) {
+            if(args[i] === args[j]) {
+                return true;
+            }            
+        }
+    }
+    return false;
+}
+// console.log(areThereDuplicates1(1,2,3,)) // false
+// console.log(areThereDuplicates1(1,3,7,3)) // true
+// console.log(areThereDuplicates1(1,5,7,9,3,5)) // true
+/*below solution with while loop provided by author but it's not working as expected*/ 
+function areThereDuplicates(...args) {
+    // Two pointers
+    args.sort((a,b) => a > b);
+    let start = 0;
+    let next = 1;
+    while(next < args.length){
+      if(args[start] === args[next]){
+          return true
+      }
+      start++
+      next++
+    }
+    return false
+}
+console.log(areThereDuplicates(1,2,3,)) // false
+console.log(areThereDuplicates(1,3,7,3)) // true
+
+function areThereDuplicates3(arguments) {
+    return new Set(arguments).size !== arguments.length;
+}
+console.log(areThereDuplicates3(1,2,3,)) // false
+console.log(areThereDuplicates3(1,3,7,3)) // true

@@ -1,0 +1,36 @@
+/*write a recursive function called reverse, which accepts a string and returns a new string in reverse.
+*/
+
+/*COMMENTS: 
+*/
+/*function reverse(str){
+    let length = str.length;
+    if(length === 1) {
+        return str[0];
+    }
+    return ((str[length - 1]) + reverse(str.slice(0, length-1)));
+}
+console.log(reverse('awesome')) // 'emosewa'
+console.log(reverse('rithmschool')) // 'loohcsmhtir'*/
+
+//method 2
+
+/*function reverse(str){
+    //reverse method works on arrays, convert given string to an array and apply reverse and convert back to string using join.
+      return str.split('').reverse().join('');
+}
+
+console.log(reverse('awesome')) // 'emosewa'
+console.log(reverse('rithmschool')) // 'loohcsmhtir'*/
+
+//method3
+function reverse(str){
+    let length = str.length;
+    let newString = ''
+    for (let index = length; index > 0; index--) {
+        newString += str[index - 1];
+    }
+    return newString;
+}
+console.log(reverse('awesome')) // 'emosewa'
+console.log(reverse('rithmschool')) // 'loohcsmhtir'

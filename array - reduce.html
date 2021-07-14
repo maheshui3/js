@@ -1,0 +1,17 @@
+let john = { name: "John", age: 45 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+let arr = [ john, pete, mary ];
+let sum = 0;
+/*function sumAges(ageArray) {
+    for (const iterator of ageArray) {
+        sum = sum + iterator.age;
+    }
+    return Math.round((sum/ageArray.length));
+}*/
+
+//console.log( sumAges(arr) );
+
+//method2
+let result = (arr.reduce((sum, current) => sum + current.age, 0)/arr.length);
+console.log(result);

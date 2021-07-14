@@ -1,0 +1,27 @@
+/*write a function called power it should accept base and exponent,
+the function should return the power of base to the exponent, this function should mimic math.pow().
+*/
+
+/*COMMENTS: 
+*/
+/*function power(base, expo){
+    if(expo === 0) {
+        return 1;
+    }
+    return base * power(base, expo - 1);
+}
+
+console.log(power(2,5)) //32
+console.log(power(5,5)) //3125*/
+
+//method 2
+function power(base, expo){
+    let total = 1;
+    for (let i = 1; i <= expo; i++) {
+        total *= base;    
+    }
+    return total;
+}
+
+console.log(power(2,5)) //32
+console.log(power(5,5)) //3125

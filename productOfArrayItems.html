@@ -1,0 +1,43 @@
+/*write a function called productOfArray which returns product of all of them.
+*/
+
+/*COMMENTS: 
+*/
+function productOfArray(arr){
+    let length = arr.length;
+    if(length === 0) {
+        return 1;
+    }
+    return arr[length-1] * productOfArray(arr.splice(0, length-1))
+    //return arr[0] * productOfArray(arr.slice(1));
+}
+
+console.log(productOfArray([1,2,3,7]))//42
+console.log(productOfArray([1,2,3,11]))//66
+//method 2
+
+/*function productOfArray(arr){
+    let total = 1;
+    for (const elem of arr) {
+        total *= elem;
+    }
+    return total;
+}
+
+console.log(productOfArray([1,2,3,7]))//42
+console.log(productOfArray([1,2,3,11]))//66*/
+
+//method 3
+
+/*function productOfArray(arr){
+    let length = arr.length;
+    let total = 1;
+    while (length > 0) {
+        total *= arr[length - 1];
+        length--;
+    }
+    return total;
+}
+
+console.log(productOfArray([1,2,3,7]))//42
+console.log(productOfArray([1,2,3,11]))//66*/

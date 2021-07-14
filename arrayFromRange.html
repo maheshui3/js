@@ -1,0 +1,12 @@
+let targetArray = [1, '1', 'mahesh', '', 0, undefined];
+console.log(countTruthy(targetArray));
+function countTruthy(){
+    let count = 0;
+    for(let v of targetArray){
+        if(v){
+            count++;
+        }
+    }
+    return count;
+}
+
